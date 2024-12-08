@@ -21,8 +21,18 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/sarvsav/go-mongodb/cmd"
+import (
+	"log"
+
+	"github.com/joho/godotenv"
+	"github.com/sarvsav/go-mongodb/cmd"
+)
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	cmd.Execute()
 }
